@@ -1,0 +1,9 @@
+<service>
+  <id>webhook-service</id>
+  <name>WebHook Service</name>
+  <description>GitHub WebHook of Anawaert</description>
+  <executable>C:\Users\Administrator\webhook\webhook.exe</executable>
+  <arguments>-hooks C:\Users\Administrator\webhook\refresh-sites-webhook.json -verbose</arguments>
+  <logmode>reset</logmode>
+  <onfailure action="restart"/>
+</service>

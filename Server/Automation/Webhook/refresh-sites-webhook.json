@@ -1,0 +1,65 @@
+[
+  {
+    "id": "aw-auto-refresh",
+    "execute-command": "C:/Windows/system32/WindowsPowerShell/v1.0/powershell.exe",
+    "command-working-directory": "C:/Users/Administrator/Automation/WebsiteUpdate",
+    "response-message": "Aw Server has gotten the payload.",
+    "pass-arguments-to-command":
+    [
+      {
+        "source": "string",
+        "name": "-ExecutionPolicy"
+      },
+      {
+        "source": "string",
+        "name": "Bypass"
+      },
+      {
+        "source": "string",
+        "name": "-File"
+      },
+      {
+        "source": "string",
+        "name": "C:/Users/Administrator/Automation/WebsiteUpdate/Base.ps1"
+      },
+      {
+        "source": "string",
+        "name": "-RepoName"
+      },
+      {
+        "source": "payload",
+        "name": "repository.name"
+      }
+    ],
+    "trigger-rule":
+    {
+      "and":
+      [
+        {
+          "match":
+          {
+            "type": "payload-hmac-sha1",
+            "secret": "${CAN_NOT_BE_SHOWN}",
+            "parameter":
+            {
+              "source": "header",
+              "name": "X-Hub-Signature"
+            }
+          }
+        },
+        {
+          "match":
+          {
+            "type": "value",
+            "value": "refs/heads/master",
+            "parameter":
+            {
+              "source": "payload",
+              "name": "ref"
+            }
+          }
+        }
+      ]
+    }
+  }
+]
