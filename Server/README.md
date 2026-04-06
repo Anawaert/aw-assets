@@ -3,6 +3,6 @@ Just as the name suggests, the directory is used to store some practical resourc
 
 *   `/Automation`: Automated scripts and Webhook executable.
     -   `/Webhook`: Webhook executable files.
-    -   `/WebsitesUpdate`: Windows `PowerShell` scripts that are used to refresh the website by `git push` operation of remote repository.
+    -   `/WebsitesUpdate`: Windows `PowerShell` scripts that are used to refresh the website when `git push` operation is triggered in remote repository.
 
 *   `/WindowsServices/WinSW`: Windows service wrapper executable files.
